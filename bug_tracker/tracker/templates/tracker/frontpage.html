@@ -1,0 +1,9 @@
+{%extends 'tracker/base.html' %}
+
+{% block content %}
+    {% for bug in bugs %}
+        <div class="post bug">
+            <h2 class="subtitle">{{bug.title}}</h2>
+        </div>
+    {% endfor %}
+{% endblock %}
