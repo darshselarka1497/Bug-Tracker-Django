@@ -2,9 +2,11 @@
 
 {% block content %}
     {% for bug in bugs %}
+        <hr>
         <div class="post bug">
-            <h2 class="subtitle"><b>{{bug.title}}</b><small> Posted at {{bug.date_added}}</small> </h2>
-            <a href="{% url 'bug_detail' bug.slug %}">More Details</a>
+            <h2 class="subtitle"><b>{{bug.title}} </b><small>(<a href="{% url 'bug_detail' bug.slug %}">More Details</a>)</small></h2>
+            <small><i>Posted at {{bug.date_added}} </i></small>
         </div>
+        <hr>
     {% endfor %}
 {% endblock %}

@@ -6,4 +6,46 @@
     <p><strong>{{bug.description}}</strong></p>
     <p><strong>{{bug.team}}</strong></p>
     <small>Posted on {{bug.date_added}}</small>
+
+    <hr>
+
+    <h2 class='subtitle'>Comments</h2>
+
+    {% for comment in bug.comments.all %}
+        <article class='media'>
+            <div class='media-content'>
+                <div class='content'>
+                    <p>
+                        <strong>Team Member Name: </strong>{{comment.team_member}}<br>
+                        <strong>Email: </strong>{{comment.email}}<br>
+                        <strong>Update: </strong>{{comment.description}}<br>
+                        <small>Comment posted on {{comment.date_added}}</small>
+                    </p>
+                </div>
+            </div>
+        </article>
+
+    {% empty %}
+        <div class="notification">
+            <p>No Comments Yet</p>
+        </div>
+    
+    {% endfor %}  
+
+    <hr>
+
+    <h2 class='subtitle'>Add Comment</h2>
+
+    <form method='post' action='.'>
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <div class="field">
+            <div class="control">
+                <button class="button is-success"> Submit </button>
+            </div>
+        </div>
+    </form>
+    
 {% endblock %}
