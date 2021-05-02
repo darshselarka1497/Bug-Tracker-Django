@@ -3,7 +3,8 @@
 {% block content %}
     {% for bug in bugs %}
         <div class="post bug">
-            <h2 class="subtitle">{{bug.title}}</h2>
+            <h2 class="subtitle"><b>{{bug.title}}</b><small> Posted at {{bug.date_added}}</small> </h2>
+            <a href="{% url 'bug_detail' bug.slug %}">More Details</a>
         </div>
     {% endfor %}
 {% endblock %}

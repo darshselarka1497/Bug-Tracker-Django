@@ -19,5 +19,6 @@ from tracker import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.frontpage, name="frontpage")
+    path('', views.frontpage, name="frontpage"),
+    path('<slug:slug>/', views.bug_detail, name="bug_detail")
 ]

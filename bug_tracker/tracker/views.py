@@ -6,3 +6,9 @@ from .models import Bug
 def frontpage(request):
     bugs = Bug.objects.all()
     return render(request, 'tracker/frontpage.html', {'bugs': bugs})
+
+
+def bug_detail(request, slug):
+    bug = Bug.objects.get(slug = slug)
+
+    return render(request, 'tracker/bug_detail.html', {'bug': bug})

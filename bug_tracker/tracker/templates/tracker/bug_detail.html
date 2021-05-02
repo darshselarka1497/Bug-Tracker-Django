@@ -1,0 +1,9 @@
+{% extends 'tracker/base.html' %}
+
+{% block content %}
+    <h1 class='title'>{{bug.title}}</h1>
+
+    <p><strong>{{bug.description}}</strong></p>
+    <p><strong>{{bug.team}}</strong></p>
+    <small>Posted on {{bug.date_added}}</small>
+{% endblock %}
